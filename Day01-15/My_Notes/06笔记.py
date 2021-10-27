@@ -1,6 +1,25 @@
 # 文档中的例题
 
 # 例题1：函数的作用
+
+# 我的版本：
+# def C(M,N):
+def fac(num):
+    result = 1
+    # for num in range(num,0,-1):
+    # for temp in range(num + 1,0,-1):
+    for temp in range(num,0,-1):
+        result *= temp
+    return result
+m = int(input('m = '))
+n = int(input('n = '))
+def C(M,N):
+    # result = fac(M)//fac(N)//fac(M-N+1)
+    result = fac(M)//fac(N)//fac(M-N)
+    return result
+print(C(m,n))
+# 结果已校准
+
 """
 输入M和N计算C(M,N)
 
@@ -19,7 +38,7 @@ m = int(input('m = '))
 n = int(input('n = '))
 # 当需要计算阶乘的时候不用再写循环求阶乘而是直接调用已经定义好的函数
 print(fac(m) // fac(n) // fac(m - n))
-# 【疑问】为啥这里要用双斜杠取整呢？
+# 【疑问】为啥这里要用双斜杠取整呢？——也许是数学公式推广到实数域的结果
 
 '''
 说明： Python的math模块中其实已经有一个名为factorial函数实现了阶乘运算，
@@ -65,8 +84,19 @@ print(add(c=50, a=100, b=200))
 # 练习（这次只是学习，下次复写一遍！）
 
 # 练习1：实现计算求最大公约数和最小公倍数的函数。
+# 我的版本：
+
 def gcd(x,y):
     """求最大公约数"""
+    (x,y) = (y,x) if x > y else (x,y)
+    for factor in range(x,0,-1):
+        if x % factor == 0 and y % factor == 0:
+            return factor
+
+def lcm(x,y):
+    """求最小公倍数"""
+    return x * y // gcd(x,y)
+
 
 # 标准答案：内含新的格式操作
 def gcd(x, y):
@@ -83,6 +113,26 @@ def lcm(x, y):
     return x * y // gcd(x, y)
 
 # 练习2：实现判断一个数是不是回文数的函数。
+# 我的版本：
+def palindrome(num):
+    """求一个数的回文数"""
+    temp = num
+    result = 0
+    while temp > 0:
+        # temp = temp % 10
+        # result = result * 10 + temp
+        result = result * 10 + temp % 10
+        temp //= 10
+    return result
+
+def is_palindrome(num):
+    """判断一个数是不是回文数"""
+    # if :
+        # elif:
+    return num == palindrome(num)
+num = int(input('num ='))
+print(is_palindrome(num))
+# 结果已校准
 
 # 标准答案：这个是函数基础课经典案例
 def is_palindrome(num):
@@ -95,16 +145,37 @@ def is_palindrome(num):
     return total == num
 
 # 练习3：实现判断一个数是不是素数的函数。
+# 我的版本：
+def is_prime(num):
+    """判断一个数是不是素数"""
+    for _ in range(num,1,-1):
+        if num % _ == 0:
+            return False 
+    return True if num != 1 else False
+
 
 # 标准答案：求平方根还可以用指数运算：
 def is_prime(num):
     """判断一个数是不是素数"""
     for factor in range(2, int(num ** 0.5) + 1):
         if num % factor == 0:
-            return False
-    return True if num != 1 else False
+            return False 
+            # 【多return】这里可以直接跳出函数
+    return True if num != 1 else False # 【新格式】
 
 # 练习4：写一个程序判断输入的正整数是不是回文素数
+# 我的版本：
+def is_both(num):
+    """判断输入的正整数是不是回文素数"""
+    return is_palindrome(num) and is_prime(num)
+
+def main():
+    """本文件的主函数"""
+    num = int(input('num = '))
+    is_both(num)
+    
+if __name__ == '__main__':
+    main()
 
 # 标准答案：
 if __name__ == '__main__':
