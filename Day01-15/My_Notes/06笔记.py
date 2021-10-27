@@ -164,7 +164,7 @@ def is_prime(num):
     return True if num != 1 else False # 【新格式】
 
 # 练习4：写一个程序判断输入的正整数是不是回文素数
-# 我的版本：
+# 我的版本：比标准答案更好似乎？
 def is_both(num):
     """判断输入的正整数是不是回文素数"""
     return is_palindrome(num) and is_prime(num)
@@ -177,7 +177,7 @@ def main():
 if __name__ == '__main__':
     main()
 
-# 标准答案：
+# 标准答案：完整结构
 if __name__ == '__main__':
     num = int(input('请输入正整数: '))
     if is_palindrome(num) and is_prime(num):
@@ -187,7 +187,4 @@ if __name__ == '__main__':
 我们可以**组合使用这些函数**来解决更为复杂的问题，
 这也是我们为什么要定义和使用函数的一个非常重要的原因。
 '''
-
-
-
 
