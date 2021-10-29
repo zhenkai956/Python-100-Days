@@ -128,7 +128,7 @@ def main():
         'TL': ' ', 'TM': ' ', 'TR': ' ',
         'ML': ' ', 'MM': ' ', 'MR': ' ',
         'BL': ' ', 'BM': ' ', 'BR': ' '
-    }
+    } # 这是一个字典
     begin = True
     while begin:
         curr_board = init_board.copy()
