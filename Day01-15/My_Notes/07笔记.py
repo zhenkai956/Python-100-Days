@@ -210,3 +210,4 @@ print(scores.pop('二百五', 250)) # 250，这个是默认值，否则是报错
 scores.clear()
 print(scores) #{}
 
+
